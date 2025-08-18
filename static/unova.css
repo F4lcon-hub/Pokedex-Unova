@@ -1,0 +1,76 @@
+/* Estilo geral do corpo, inspirado na região de Unova */
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #b7e0f7 0%, #3a5da8 100%);
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Container principal da Pokédex */
+.container {
+    max-width: 420px;
+    margin: 60px auto;
+    background: #f8fafc;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(58,93,168,0.15);
+    border: 2px solid #3a5da8;
+}
+
+/* Título principal */
+h1 {
+    color: #3a5da8;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Campo de busca do Pokémon */
+input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #3a5da8;
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+/* Botão de busca */
+button {
+    background: #3a5da8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+button:hover {
+    background: #2c4377;
+}
+
+/* Imagem do Pokémon */
+img {
+    display: block;
+    margin: 16px auto;
+    max-width: 160px;
+    background: #e3eaf6;
+    border-radius: 12px;
+    border: 2px solid #3a5da8;
+}
+
+/* Mensagem de erro */
+.error {
+    color: #d32f2f;
+    text-align: center;
+    margin-top: 12px;
+}
+
+/* Texto dos tipos do Pokémon */
+p {
+    text-align: center;
+    color: #2c4377;
+    font-size: 1.1em;
+}

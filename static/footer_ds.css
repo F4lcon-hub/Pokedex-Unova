@@ -1,0 +1,15 @@
+/* Footer inspirado no Nintendo DS */
+.footer {
+    background: linear-gradient(90deg, #3a5da8 0%, #e3eaf6 100%);
+    padding: 14px 0;
+    text-align: center;
+    border-top: 3px solid #3a5da8;
+    box-shadow: 0 -2px 8px rgba(58,93,168,0.10);
+}
+.footer p {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #2c4377;
+    font-size: 1em;
+    margin: 0;
+    letter-spacing: 1px;
+}

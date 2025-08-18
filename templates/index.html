@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokédex Flask</title>
+    <!-- Importa o CSS inspirado na região de Unova -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        <!-- Formulário para buscar Pokémon pelo nome -->
+        <form method="post">
+            <input type="text" name="name" placeholder="Digite o nome do Pokémon" required>
+            <button type="submit">Buscar</button>
+        </form>
+        <!-- Exibe mensagem de erro se o Pokémon não for encontrado -->
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <!-- Exibe os dados do Pokémon encontrado -->
+        {% if pokemon %}
+            <h2>{{ pokemon.name }}</h2>
+            <img src="{{ pokemon.image }}" alt="Imagem do Pokémon">
+            <p>Tipos: {{ pokemon.types | join(', ') }}</p>
+        {% endif %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

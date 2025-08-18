@@ -1,0 +1,2 @@
+Flask  # Framework web utilizado para criar o site da Pokédex
+requests  # Biblioteca para fazer requisições HTTP à PokéAPI

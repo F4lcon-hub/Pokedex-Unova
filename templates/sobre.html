@@ -1,0 +1,39 @@
+<!-- Página Sobre a Pokédex Unova -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sobre - Pokédex Unova</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        <h2>Sobre o Projeto</h2>
+        <p>Esta Pokédex foi desenvolvida em Flask, utilizando a PokéAPI para buscar informações dos Pokémon da região de Unova.</p>
+        <ul>
+            <li>Interface inspirada nos jogos lançados para Nintendo DS.</li>
+            <li>Busca por nome de Pokémon e exibe imagem, tipos e detalhes.</li>
+            <li>Projeto educativo e sem fins lucrativos.</li>
+        </ul>
+        <h3>Sobre Unova</h3>
+        <p>Unova é uma região do mundo Pokémon, introduzida nos jogos Pokémon Black & White. Inspirada em Nova York, traz uma grande diversidade de ambientes e Pokémon exclusivos da geração V.</p>
+
+        <!-- Informações do Pokémon pesquisado -->
+        {% if pokemon %}
+            <hr>
+            <h3>Informações do Pokémon pesquisado</h3>
+            <h4>{{ pokemon.name }}</h4>
+            <img src="{{ pokemon.image }}" alt="Imagem do Pokémon">
+            <p><strong>Tipos:</strong> {{ pokemon.types | join(', ') }}</p>
+            <p><strong>Fraquezas:</strong> {% if pokemon.fraquezas %}{{ pokemon.fraquezas | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
+            <p><strong>Evoluções:</strong> {% if pokemon.evolucoes %}{{ pokemon.evolucoes | join(' → ') }}{% else %}Não possui evoluções{% endif %}</p>
+            <p><strong>Mega Evolução:</strong> {% if pokemon.mega %}{{ pokemon.mega }}{% else %}Não possui megaevolução{% endif %}</p>
+        {% endif %}
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>
