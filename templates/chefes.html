@@ -1,0 +1,106 @@
+<!-- Página dos Chefes da Região de Unova -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<!--
+    chefes.html - Página dos líderes de ginásio e campeões de Unova
+    - Lista todos os chefes com cards personalizados por tipo
+    - Exibe sprites oficiais, nome, tipo e cidade/gym
+    - Estilos em chefes.css e unova.css
+-->
+    <meta charset="UTF-8">
+    <title>Chefes de Unova</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='chefes.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="container">
+        <h2>Chefes dos Jogos da Região de Unova</h2>
+        <p>Conheça os líderes de ginásio e campeões dos jogos Pokémon Black, White, Black 2 e White 2!</p>
+        <div class="chief-list">
+            <div class="chief-card chief-grass">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/cilan.png" alt="Cilan" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Cilan</div>
+                <div class="chief-type">Tipo Planta</div>
+                <span>Líder do Ginásio de Striaton</span>
+            </div>
+            <div class="chief-card chief-fire">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/chili.png" alt="Chili" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Chili</div>
+                <div class="chief-type">Tipo Fogo</div>
+                <span>Líder do Ginásio de Striaton</span>
+            </div>
+            <div class="chief-card chief-water">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/cress.png" alt="Cress" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Cress</div>
+                <div class="chief-type">Tipo Água</div>
+                <span>Líder do Ginásio de Striaton</span>
+            </div>
+            <div class="chief-card chief-normal">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/lenora.png" alt="Lenora" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Lenora</div>
+                <div class="chief-type">Tipo Normal</div>
+                <span>Ginásio de Nacrene</span>
+            </div>
+            <div class="chief-card chief-bug">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/burgh.png" alt="Burgh" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Burgh</div>
+                <div class="chief-type">Tipo Inseto</div>
+                <span>Ginásio de Castelia</span>
+            </div>
+            <div class="chief-card chief-electric">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/elesa.png" alt="Elesa" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Elesa</div>
+                <div class="chief-type">Tipo Elétrico</div>
+                <span>Ginásio de Nimbasa</span>
+            </div>
+            <div class="chief-card chief-ground">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/clay.png" alt="Clay" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Clay</div>
+                <div class="chief-type">Tipo Terra</div>
+                <span>Ginásio de Driftveil</span>
+            </div>
+            <div class="chief-card chief-flying">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/skyla.png" alt="Skyla" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Skyla</div>
+                <div class="chief-type">Tipo Voador</div>
+                <span>Ginásio de Mistralton</span>
+            </div>
+            <div class="chief-card chief-ice">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/brycen.png" alt="Brycen" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Brycen</div>
+                <div class="chief-type">Tipo Gelo</div>
+                <span>Ginásio de Icirrus</span>
+            </div>
+            <div class="chief-card chief-dragon">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/drayden.png" alt="Drayden" style="width:64px;height:64px;margin-bottom:8px;">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/iris.png" alt="Iris" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Drayden/Iris</div>
+                <div class="chief-type">Tipo Dragão</div>
+                <span>Ginásio de Opelucid</span>
+            </div>
+            <div class="chief-card chief-water2">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/marlon.png" alt="Marlon" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Shizui (Marlon)</div>
+                <div class="chief-type">Tipo Água</div>
+                <span>Ginásio de Humilau (B2/W2)</span>
+            </div>
+            <div class="chief-card chief-dragon">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/iris.png" alt="Iris" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Campeã Iris</div>
+                <div class="chief-type">Tipo Dragão</div>
+                <span>Campeã da Liga Pokémon (B2/W2)</span>
+            </div>
+            <div class="chief-card chief-bug">
+                <img src="https://play.pokemonshowdown.com/sprites/trainers/alder.png" alt="Alder" style="width:64px;height:64px;margin-bottom:8px;">
+                <div class="chief-title">Campeão Alder</div>
+                <div class="chief-type">Tipo Diversos</div>
+                <span>Campeão da Liga Pokémon (B/W)</span>
+            </div>
+        </div>
+        <p style="margin-top:24px;">Cada chefe possui uma equipe única e representa um desafio especial para os treinadores em Unova!</p>
+    </div>
+    {% include 'footer.html' %}
+</body>
+</html>

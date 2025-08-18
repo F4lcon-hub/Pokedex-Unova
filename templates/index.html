@@ -9,20 +9,63 @@
 <body>
     {% include 'header.html' %}
     <div class="container">
-        <!-- Formulário para buscar Pokémon pelo nome -->
-        <form method="post">
-            <input type="text" name="name" placeholder="Digite o nome do Pokémon" required>
-            <button type="submit">Buscar</button>
-        </form>
-        <!-- Exibe mensagem de erro se o Pokémon não for encontrado -->
+        <section class="busca-box">
+            <form method="post" class="busca-form">
+                <label for="name">Buscar por nome ou número:</label>
+                <input type="text" id="name" name="name" placeholder="Ex: bulbasaur ou 1" autocomplete="off">
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
         {% if error %}
             <p class="error">{{ error }}</p>
         {% endif %}
-        <!-- Exibe os dados do Pokémon encontrado -->
         {% if pokemon %}
-            <h2>{{ pokemon.name }}</h2>
-            <img src="{{ pokemon.image }}" alt="Imagem do Pokémon">
-            <p>Tipos: {{ pokemon.types | join(', ') }}</p>
+            <section class="pokemon-card">
+                <h2>{{ pokemon.name }}</h2>
+                <div class="sprite-box">
+                    <img src="{{ pokemon.image }}" alt="Imagem do Pokémon" class="poke-sprite">
+                    {% if pokemon.image_shiny %}
+                        <img src="{{ pokemon.image_shiny }}" alt="Sprite Shiny" class="poke-sprite shiny" title="Shiny">
+                    {% endif %}
+                </div>
+                <div class="info-box">
+                    <p><strong>Tipos:</strong> {{ pokemon.types | join(', ') }}</p>
+                    <p><strong>Fraquezas:</strong> {% if pokemon.fraquezas %}{{ pokemon.fraquezas | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
+                    <p><strong>Mega Evolução:</strong> {% if pokemon.mega %}{{ pokemon.mega }}{% else %}Não possui megaevolução{% endif %}</p>
+                </div>
+                <div class="evolucoes-box">
+                    <p><strong>Evoluções:</strong></p>
+                    {% if pokemon.evolucoes %}
+                        <ul class="evo-list">
+                        {% for evo in pokemon.evolucoes %}
+                            <li>
+                                <form method="post" style="display:inline;">
+                                    <input type="hidden" name="name" value="{{ evo }}">
+                                    <button type="submit" class="evo-btn">{{ evo }}</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Não possui evoluções</p>
+                    {% endif %}
+                </div>
+                <div class="habilidades-box">
+                    <p><strong>Habilidades:</strong> {% if pokemon.habilidades %}{{ pokemon.habilidades | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
+                </div>
+                <div class="stats-box">
+                    <p><strong>Stats:</strong></p>
+                    {% if pokemon.stats %}
+                        <ul class="stats-list">
+                        {% for stat, valor in pokemon.stats.items() %}
+                            <li><span class="stat-nome">{{ stat }}:</span> <span class="stat-valor">{{ valor }}</span></li>
+                        {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>Stats não encontrados</p>
+                    {% endif %}
+                </div>
+            </section>
         {% endif %}
     </div>
     {% include 'footer.html' %}

@@ -1,3 +1,197 @@
+/* Estilos para index.html melhorado */ /* Cards, busca, sprites, listas, responsividade */
+.busca-box {
+/* Container da busca principal */
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.busca-form {
+/* Formulário de busca flexível */
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.pokemon-card {
+/* Card principal do Pokémon */
+    background: #e3eaf6;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(58,93,168,0.12);
+    padding: 24px;
+    margin: 0 auto 24px auto;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.sprite-box {
+/* Box para sprites normal e shiny */
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+}
+.poke-sprite {
+/* Sprite do Pokémon (normal e shiny) */
+    width: 96px;
+    height: 96px;
+    image-rendering: pixelated;
+    border-radius: 12px;
+    background: #fff;
+    border: 2px solid #3a5da8;
+}
+.poke-sprite.shiny {
+/* Sprite shiny com fundo dourado */
+    background: #ffe066;
+    border-color: #e3b700;
+}
+.info-box, .evolucoes-box, .habilidades-box, .stats-box {
+/* Blocos de informações do card */
+    margin-bottom: 8px;
+}
+.evo-list {
+/* Lista horizontal de evoluções */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+}
+.stats-list {
+/* Lista horizontal de stats */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+}
+.stat-nome {
+/* Nome do stat destacado */
+    font-weight: bold;
+    color: #3a5da8;
+}
+.stat-valor {
+/* Valor do stat */
+    color: #232a3a;
+}
+@media (max-width: 600px) {
+/* Responsividade para mobile */
+    .pokemon-card {
+        padding: 12px;
+        max-width: 98vw;
+    }
+    .poke-sprite {
+        width: 64px;
+        height: 64px;
+    }
+}
+.dark-mode .pokemon-card {
+/* Card do Pokémon no modo escuro */
+    background: #232a3a !important;
+    color: #e3eaf6 !important;
+    border-color: #3a5da8 !important;
+}
+.dark-mode .poke-sprite {
+/* Sprite no modo escuro */
+    background: #1a2233 !important;
+    border-color: #3a5da8 !important;
+}
+.dark-mode .poke-sprite.shiny {
+/* Sprite shiny no modo escuro */
+    background: #3a5da8 !important;
+    border-color: #ffe066 !important;
+}
+.dark-mode .stat-nome {
+/* Nome do stat no modo escuro */
+    color: #b7e0f7 !important;
+}
+.dark-mode .stat-valor {
+/* Valor do stat no modo escuro */
+    color: #e3eaf6 !important;
+}
+/* Modo escuro global melhorado */
+/* Modo escuro global melhorado */
+.dark-mode {
+/* Container global do modo escuro */
+    background: linear-gradient(135deg, #232a3a 0%, #1a2233 100%) !important;
+    color: #e3eaf6 !important;
+}
+.dark-mode .container {
+/* Container principal no modo escuro */
+    background: #232a3a !important;
+    border-color: #3a5da8 !important;
+    box-shadow: 0 4px 24px rgba(58,93,168,0.25);
+}
+.dark-mode h1, .dark-mode h2, .dark-mode h3, .dark-mode h4 {
+/* Títulos no modo escuro */
+    color: #b7e0f7 !important;
+}
+.dark-mode input[type="text"] {
+/* Input de texto no modo escuro */
+    background: #1a2233 !important;
+    color: #e3eaf6 !important;
+    border-color: #3a5da8 !important;
+}
+.dark-mode button, .dark-mode .evo-btn {
+/* Botões no modo escuro */
+    background: linear-gradient(180deg, #3a5da8 0%, #232a3a 100%) !important;
+    color: #e3eaf6 !important;
+    border-color: #b7e0f7 !important;
+}
+.dark-mode .error {
+/* Mensagem de erro no modo escuro */
+    color: #ff6b6b !important;
+}
+.dark-mode a, .dark-mode nav a {
+/* Links no modo escuro */
+    color: #b7e0f7 !important;
+    text-decoration: underline;
+}
+.dark-mode ul, .dark-mode li, .dark-mode p, .dark-mode span {
+/* Listas, parágrafos e spans no modo escuro */
+    color: #e3eaf6 !important;
+}
+.dark-mode .footer {
+/* Rodapé no modo escuro */
+    background: #232a3a !important;
+    color: #b7e0f7 !important;
+    border-top: 3px solid #3a5da8 !important;
+}
+.dark-mode .header {
+/* Cabeçalho no modo escuro */
+    background: linear-gradient(90deg, #232a3a 0%, #3a5da8 100%) !important;
+    color: #b7e0f7 !important;
+    border-bottom: 3px solid #3a5da8 !important;
+}
+.dark-mode img {
+/* Imagens no modo escuro */
+    background: #1a2233 !important;
+    border-color: #3a5da8 !important;
+}
+/* Botão de evolução estilo DS */
+.evo-btn {
+/* Botão de evolução estilo DS */
+    background: linear-gradient(180deg, #e3eaf6 0%, #3a5da8 100%);
+    color: #fff;
+    border: 2px solid #2c4377;
+    border-radius: 12px;
+    padding: 6px 18px;
+    margin: 4px 0;
+    font-size: 1em;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(58,93,168,0.15);
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+    outline: none;
+}
+.evo-btn:hover, .evo-btn:focus {
+    background: linear-gradient(180deg, #3a5da8 0%, #e3eaf6 100%);
+    color: #e3eaf6;
+    transform: scale(1.05);
+}
 /* Estilo geral do corpo, inspirado na região de Unova */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;

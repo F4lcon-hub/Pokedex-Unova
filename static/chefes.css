@@ -1,0 +1,64 @@
+/* Modo escuro para cards dos chefes */
+.dark-mode .chief-card {
+    background: #232a3a !important;
+    color: #e3eaf6 !important;
+    border-color: #3a5da8 !important;
+}
+.dark-mode .chief-title, .dark-mode .chief-type, .dark-mode .chief-card span {
+    color: #b7e0f7 !important;
+}
+.dark-mode .chief-grass { border-color: #78C850 !important; background: #294d2c !important; }
+.dark-mode .chief-fire { border-color: #F08030 !important; background: #4d2c1a !important; }
+.dark-mode .chief-water, .dark-mode .chief-water2 { border-color: #6890F0 !important; background: #23334d !important; }
+.dark-mode .chief-normal { border-color: #A8A878 !important; background: #44443a !important; }
+.dark-mode .chief-bug { border-color: #A8B820 !important; background: #3a4d2c !important; }
+.dark-mode .chief-electric { border-color: #F8D030 !important; background: #4d492c !important; }
+.dark-mode .chief-ground { border-color: #E0C068 !important; background: #4d442c !important; }
+.dark-mode .chief-flying { border-color: #A890F0 !important; background: #2c2c4d !important; }
+.dark-mode .chief-ice { border-color: #98D8D8 !important; background: #2c4d4d !important; }
+.dark-mode .chief-dragon { border-color: #7038F8 !important; background: #2c234d !important; }
+/* Estilos para a página dos chefes de Unova, com cores baseadas nos tipos dos ginásios */
+
+.chief-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+    margin-top: 24px;
+}
+.chief-card {
+    background: #f8fafc;
+    border-radius: 14px;
+    box-shadow: 0 2px 12px rgba(58,93,168,0.10);
+    padding: 18px 24px;
+    min-width: 220px;
+    max-width: 260px;
+    text-align: center;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-weight: bold;
+    margin-bottom: 12px;
+    border: 3px solid #3a5da8;
+}
+/* Cores por tipo */
+.chief-grass { border-color: #78C850; background: #e6f7e6; }
+.chief-fire { border-color: #F08030; background: #fff2e6; }
+.chief-water { border-color: #6890F0; background: #e6f2ff; }
+.chief-normal { border-color: #A8A878; background: #f7f7e6; }
+.chief-bug { border-color: #A8B820; background: #f6fbe6; }
+.chief-electric { border-color: #F8D030; background: #fffbe6; }
+.chief-ground { border-color: #E0C068; background: #f9f6e6; }
+.chief-flying { border-color: #A890F0; background: #f2f2ff; }
+.chief-ice { border-color: #98D8D8; background: #e6faff; }
+.chief-dragon { border-color: #7038F8; background: #f2e6ff; }
+.chief-water2 { border-color: #6890F0; background: #e6f2ff; }
+
+.chief-title {
+    font-size: 1.2em;
+    margin-bottom: 8px;
+}
+.chief-type {
+    font-size: 1em;
+    font-weight: normal;
+    color: #2c4377;
+    margin-bottom: 6px;
+}

@@ -5,6 +5,13 @@
     <meta charset="UTF-8">
     <title>Sobre - Pokédex Unova</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
+<!--
+    sobre.html - Página de informações sobre o projeto e a região de Unova
+    - Explica o propósito da Pokédex
+    - Traz curiosidades sobre Unova e os jogos
+    - Exibe imagens das capas dos jogos
+    - Não possui busca de Pokémon
+-->
 </head>
 <body>
     {% include 'header.html' %}
@@ -17,22 +24,35 @@
             <li>Projeto educativo e sem fins lucrativos.</li>
         </ul>
         <h3>Sobre Unova</h3>
-        <p>Unova é uma região do mundo Pokémon, introduzida nos jogos Pokémon Black & White. Inspirada em Nova York, traz uma grande diversidade de ambientes e Pokémon exclusivos da geração V.</p>
+        <p>Unova é uma região do mundo Pokémon, introduzida nos jogos <strong>Pokémon Black & White</strong>. Inspirada em Nova York, traz uma grande diversidade de ambientes e Pokémon exclusivos da geração V.</p>
+        <h4>Jogos que apresentam Unova:</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: flex-start;">
+            <div style="text-align: center; max-width: 180px;">
+                <img src="{{ url_for('static', filename='boxart-black.jpeg') }}" alt="Pokémon Black" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
+                <p><strong>Pokémon Black</strong></p>
+            </div>
+            <div style="text-align: center; max-width: 180px;">
+                <img src="{{ url_for('static', filename='boxart-white.jpeg') }}" alt="Pokémon White" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
+                <p><strong>Pokémon White</strong></p>
+            </div>
+            <div style="text-align: center; max-width: 180px;">
+                <img src="{{ url_for('static', filename='boxart-black2.jpeg') }}" alt="Pokémon Black 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
+                <p><strong>Pokémon Black 2</strong></p>
+            </div>
+            <div style="text-align: center; max-width: 180px;">
+                <img src="{{ url_for('static', filename='boxart-white2.jpeg') }}" alt="Pokémon White 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
+                <p><strong>Pokémon White 2</strong></p>
+            </div>
+        </div>
+        <ul style="margin-top: 24px;">
+            <li><strong>Pokémon Black & White</strong> (2010/2011) - Primeira aparição da região, com 156 novos Pokémon e história focada em temas sociais e éticos.</li>
+            <li><strong>Pokémon Black 2 & White 2</strong> (2012) - Continuação direta, trazendo novas áreas, personagens, formas alternativas e o sistema de Medalhas.</li>
+            <li><strong>Pokémon Dream Radar</strong> (Nintendo 3DS) - Jogo complementar que permite capturar Pokémon especiais e transferi-los para Black 2 & White 2.</li>
+            <li><strong>Pokémon Global Link</strong> - Plataforma online que integrava recursos de Unova, como o Dream World e competições globais.</li>
+        </ul>
+        <p>Unova é conhecida por ser a única região onde, no início do jogo, só é possível capturar Pokémon da geração V, tornando a experiência única e inovadora.</p>
 
-        <!-- Informações do Pokémon pesquisado -->
-        {% if pokemon %}
-            <hr>
-            <h3>Informações do Pokémon pesquisado</h3>
-            <h4>{{ pokemon.name }}</h4>
-            <img src="{{ pokemon.image }}" alt="Imagem do Pokémon">
-            <p><strong>Tipos:</strong> {{ pokemon.types | join(', ') }}</p>
-            <p><strong>Fraquezas:</strong> {% if pokemon.fraquezas %}{{ pokemon.fraquezas | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
-            <p><strong>Evoluções:</strong> {% if pokemon.evolucoes %}{{ pokemon.evolucoes | join(' → ') }}{% else %}Não possui evoluções{% endif %}</p>
-            <p><strong>Mega Evolução:</strong> {% if pokemon.mega %}{{ pokemon.mega }}{% else %}Não possui megaevolução{% endif %}</p>
-        {% endif %}
-        {% if error %}
-            <p class="error">{{ error }}</p>
-        {% endif %}
+    <!-- Informações básicas do projeto, sem busca de Pokémon -->
     </div>
     {% include 'footer.html' %}
 </body>
