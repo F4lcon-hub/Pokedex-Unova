@@ -3,6 +3,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre - Pokédex Unova</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
 <!--
@@ -26,20 +27,20 @@
         <h3>Sobre Unova</h3>
         <p>Unova é uma região do mundo Pokémon, introduzida nos jogos <strong>Pokémon Black & White</strong>. Inspirada em Nova York, traz uma grande diversidade de ambientes e Pokémon exclusivos da geração V.</p>
         <h4>Jogos que apresentam Unova:</h4>
-        <div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: flex-start;">
-            <div style="text-align: center; max-width: 180px;">
+        <div class="games-gallery" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; align-items: flex-start;">
+            <div class="game-box" style="text-align: center; max-width: 180px; flex: 1 1 150px;">
                 <img src="{{ url_for('static', filename='boxart-black.jpeg') }}" alt="Pokémon Black" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
                 <p><strong>Pokémon Black</strong></p>
             </div>
-            <div style="text-align: center; max-width: 180px;">
+            <div class="game-box" style="text-align: center; max-width: 180px; flex: 1 1 150px;">
                 <img src="{{ url_for('static', filename='boxart-white.jpeg') }}" alt="Pokémon White" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
                 <p><strong>Pokémon White</strong></p>
             </div>
-            <div style="text-align: center; max-width: 180px;">
+            <div class="game-box" style="text-align: center; max-width: 180px; flex: 1 1 150px;">
                 <img src="{{ url_for('static', filename='boxart-black2.jpeg') }}" alt="Pokémon Black 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
                 <p><strong>Pokémon Black 2</strong></p>
             </div>
-            <div style="text-align: center; max-width: 180px;">
+            <div class="game-box" style="text-align: center; max-width: 180px; flex: 1 1 150px;">
                 <img src="{{ url_for('static', filename='boxart-white2.jpeg') }}" alt="Pokémon White 2" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px #3a5da8;">
                 <p><strong>Pokémon White 2</strong></p>
             </div>

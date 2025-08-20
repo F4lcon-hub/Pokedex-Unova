@@ -75,6 +75,31 @@
 /* Valor do stat */
     color: #232a3a;
 }
+/* Responsividade melhorada para todos os dispositivos */
+@media (max-width: 768px) {
+    .container {
+        max-width: 95vw;
+        margin: 20px auto;
+        padding: 20px;
+    }
+    
+    .busca-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    
+    input[type="text"] {
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    button {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
 @media (max-width: 600px) {
 /* Responsividade para mobile */
     .pokemon-card {
@@ -84,6 +109,51 @@
     .poke-sprite {
         width: 64px;
         height: 64px;
+    }
+    
+    .sprite-box {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .stats-list, .evo-list {
+        justify-content: center;
+        gap: 6px;
+    }
+    
+    .evo-btn {
+        padding: 4px 12px;
+        font-size: 0.9em;
+    }
+    
+    .stat-nome, .stat-valor {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 16px;
+        margin: 10px auto;
+    }
+    
+    .pokemon-card {
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .poke-sprite {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .info-box, .evolucoes-box, .habilidades-box, .stats-box {
+        margin-bottom: 12px;
+    }
+    
+    h2 {
+        font-size: 1.4em;
+        text-align: center;
     }
 }
 .dark-mode .pokemon-card {
@@ -209,6 +279,33 @@ body {
     border-radius: 16px;
     box-shadow: 0 4px 24px rgba(58,93,168,0.15);
     border: 2px solid #3a5da8;
+}
+
+/* Responsividade para galeria de jogos na página sobre */
+@media (max-width: 768px) {
+    .games-gallery {
+        gap: 16px !important;
+    }
+    
+    .game-box {
+        max-width: 140px !important;
+        flex: 1 1 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .games-gallery {
+        gap: 12px !important;
+    }
+    
+    .game-box {
+        max-width: 120px !important;
+        flex: 1 1 100px !important;
+    }
+    
+    .game-box p {
+        font-size: 0.9em;
+    }
 }
 
 /* Título principal */

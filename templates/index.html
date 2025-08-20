@@ -2,6 +2,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokédex Flask</title>
     <!-- Importa o CSS inspirado na região de Unova -->
     <link rel="stylesheet" href="{{ url_for('static', filename='unova.css') }}">
@@ -49,9 +50,6 @@
                     {% else %}
                         <p>Não possui evoluções</p>
                     {% endif %}
-                </div>
-                <div class="habilidades-box">
-                    <p><strong>Habilidades:</strong> {% if pokemon.habilidades %}{{ pokemon.habilidades | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
                 </div>
                 <div class="stats-box">
                     <p><strong>Stats:</strong></p>

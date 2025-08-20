@@ -62,3 +62,54 @@
     color: #2c4377;
     margin-bottom: 6px;
 }
+
+/* Responsividade para cards dos chefes */
+@media (max-width: 768px) {
+    .chief-list {
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    .chief-card {
+        min-width: 180px;
+        max-width: 200px;
+        padding: 14px 18px;
+    }
+    
+    .chief-card img {
+        width: 56px !important;
+        height: 56px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .chief-list {
+        gap: 8px;
+    }
+    
+    .chief-card {
+        min-width: 140px;
+        max-width: 160px;
+        padding: 12px 14px;
+    }
+    
+    .chief-card img {
+        width: 48px !important;
+        height: 48px !important;
+        margin-bottom: 6px !important;
+    }
+    
+    .chief-title {
+        font-size: 1em;
+        margin-bottom: 6px;
+    }
+    
+    .chief-type {
+        font-size: 0.9em;
+        margin-bottom: 4px;
+    }
+    
+    .chief-card span {
+        font-size: 0.8em;
+    }
+}

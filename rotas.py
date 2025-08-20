@@ -51,7 +51,6 @@ def index():
                                 nomes += listar_evolucoes(evo)
                         return nomes
                     evolucoes = listar_evolucoes(chain)
-            habilidades = [h['ability']['name'].capitalize() for h in data['abilities']]
             stats = {s['stat']['name'].capitalize(): s['base_stat'] for s in data['stats']}
             pokemon = {
                 'name': data['name'].capitalize(),
@@ -59,7 +58,6 @@ def index():
                 'types': tipos,
                 'fraquezas': fraquezas,
                 'evolucoes': evolucoes,
-                'habilidades': habilidades,
                 'stats': stats
             }
         else:
