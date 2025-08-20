@@ -1,6 +1,6 @@
 🔥 Pokédex Unova
 
-Uma Pokédex interativa inspirada na região de Unova dos jogos Pokémon Black & White, desenvolvida em Flask com design responsivo e UI/UX baseado em uma Pokédex.
+Uma Pokédex interativa inspirada na região de Unova dos jogos Pokémon Black & White, desenvolvida em Flask com design responsivo e UI/UX baseado em no Nintendo DS.
 📋 Sobre o Projeto
 
 Esta Pokédex foi desenvolvida como um projeto educativo que permite buscar informações detalhadas sobre Pokémon utilizando a PokéAPI.
@@ -12,7 +12,6 @@ Esta Pokédex foi desenvolvida como um projeto educativo que permite buscar info
     🌙 Modo escuro com persistência no navegador
     🏆 Galeria de chefes da região de Unova com cores por tipo
     📖 Página informativa sobre a região e os jogos
-    ❤️ Acervo para favoritar seus pokémons favoritos salvos localmente
 
 🚀 Como Executar
 Pré-requisitos
@@ -42,7 +41,7 @@ http://localhost:5000
 📁 Estrutura do Projeto
 
 teste-pokedex-py/
-├── 📄 app.py                 # Aplicação principal Flask
+├── 📄 app.py                # Aplicação principal Flask
 ├── 📄 rotas.py              # Definição das rotas e lógica da API
 ├── 📄 requirements.txt      # Dependências Python
 ├── 📁 templates/            # Templates HTML
@@ -133,11 +132,6 @@ O modo escuro oferece uma experiência visual confortável com:
     👁️ Contraste otimizado para leitura
     🎯 Cores de destaque mantidas
 
-- ❤️ Acervo
-
-    Permite favoritar seus pokemons favoritos quando se faz uma busca
-    Permite tambem a remoção dos mesmos caso você mude de ideia
-    Salvo localmente mo localStorage
 
 🛠️ Tecnologias Utilizadas
 Backend
