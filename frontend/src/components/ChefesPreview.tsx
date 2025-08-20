@@ -1,72 +1,92 @@
 import React from 'react';
-import { Box, Container, Typography, Card, Grid } from '@mui/material';
+import { Box, Typography, Avatar, Paper, Stack } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import { styled } from '@mui/material/styles';
+import { pokedexTheme } from '../theme/pokedexTheme';
+import PokedexDevice from './PokedexDevice';
+import PokedexHeader from './PokedexHeader';
 
-const ChiefCard = styled(Card)(({ theme, borderColor, backgroundColor }) => ({
-  background: backgroundColor || '#f8fafc',
-  borderRadius: '14px',
-  boxShadow: '0 2px 12px rgba(58,93,168,0.10)',
-  padding: '18px 24px',
-  minWidth: '220px',
-  maxWidth: '260px',
+const ChefCard = styled(Paper)(({ theme, borderColor, backgroundColor }) => ({
+  background: backgroundColor || 'linear-gradient(145deg, #FFFFFF 0%, #F8F9FA 100%)',
+  borderRadius: '16px',
+  padding: '16px',
   textAlign: 'center',
-  fontFamily: 'Segoe UI, Arial, sans-serif',
-  fontWeight: 'bold',
-  marginBottom: '12px',
-  border: `3px solid ${borderColor || '#3a5da8'}`,
-  [theme.breakpoints.down('md')]: {
-    minWidth: '180px',
-    maxWidth: '200px',
-    padding: '14px 18px',
+  minWidth: '140px',
+  maxWidth: '160px',
+  border: `3px solid ${borderColor || theme.palette.primary.main}`,
+  boxShadow: '0 4px 12px rgba(0, 0, 0, 0.1)',
+  transition: 'all 0.3s ease',
+  cursor: 'pointer',
+  '&:hover': {
+    transform: 'translateY(-4px)',
+    boxShadow: '0 8px 20px rgba(0, 0, 0, 0.15)'
   },
   [theme.breakpoints.down('sm')]: {
-    minWidth: '140px',
-    maxWidth: '160px',
-    padding: '12px 14px',
-  },
+    minWidth: '120px',
+    maxWidth: '140px',
+    padding: '12px'
+  }
 }));
 
-const ChiefImage = styled('img')(({ theme }) => ({
-  width: '64px',
-  height: '64px',
-  marginBottom: '8px',
-  [theme.breakpoints.down('md')]: {
-    width: '56px',
-    height: '56px',
-  },
+const ChefAvatar = styled(Avatar)(({ theme }) => ({
+  width: '60px',
+  height: '60px',
+  margin: '0 auto 12px auto',
+  border: '2px solid #FFFFFF',
+  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)',
   [theme.breakpoints.down('sm')]: {
-    width: '48px',
-    height: '48px',
-    marginBottom: '6px',
-  },
+    width: '50px',
+    height: '50px'
+  }
 }));
 
-const ChiefTitle = styled(Typography)(({ theme }) => ({
-  fontSize: '1.2em',
-  marginBottom: '8px',
-  fontWeight: 'bold',
+const ChefName = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  fontSize: '1.1rem',
+  marginBottom: '4px',
+  color: theme.palette.text.primary,
   [theme.breakpoints.down('sm')]: {
-    fontSize: '1em',
-    marginBottom: '6px',
-  },
+    fontSize: '1rem'
+  }
 }));
 
-const ChiefType = styled(Typography)(({ theme }) => ({
-  fontSize: '1em',
-  fontWeight: 'normal',
-  color: '#2c4377',
-  marginBottom: '6px',
+const ChefType = styled(Typography)(({ theme }) => ({
+  fontSize: '0.9rem',
+  color: theme.palette.text.secondary,
+  fontWeight: 500,
+  marginBottom: '4px',
   [theme.breakpoints.down('sm')]: {
-    fontSize: '0.9em',
-    marginBottom: '4px',
-  },
+    fontSize: '0.8rem'
+  }
 }));
 
-const ChiefLocation = styled(Typography)(({ theme }) => ({
-  fontSize: '0.9em',
+const ChefLocation = styled(Typography)(({ theme }) => ({
+  fontSize: '0.8rem',
+  color: theme.palette.text.secondary,
   [theme.breakpoints.down('sm')]: {
-    fontSize: '0.8em',
+    fontSize: '0.7rem'
+  }
+}));
+
+const ChefesGrid = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '12px',
+  justifyContent: 'center',
+  maxHeight: '300px',
+  overflowY: 'auto',
+  padding: '8px',
+  '&::-webkit-scrollbar': {
+    width: '6px'
   },
+  '&::-webkit-scrollbar-track': {
+    background: 'rgba(0, 0, 0, 0.1)',
+    borderRadius: '3px'
+  },
+  '&::-webkit-scrollbar-thumb': {
+    background: theme.palette.primary.main,
+    borderRadius: '3px'
+  }
 }));
 
 export default function ChefesPreview() {
@@ -74,7 +94,7 @@ export default function ChefesPreview() {
     {
       name: 'Cilan',
       type: 'Tipo Planta',
-      location: 'Líder do Ginásio de Striaton',
+      location: 'Striaton',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/cilan.png',
       borderColor: '#78C850',
       backgroundColor: '#e6f7e6'
@@ -82,7 +102,7 @@ export default function ChefesPreview() {
     {
       name: 'Chili',
       type: 'Tipo Fogo',
-      location: 'Líder do Ginásio de Striaton',
+      location: 'Striaton',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/chili.png',
       borderColor: '#F08030',
       backgroundColor: '#fff2e6'
@@ -90,7 +110,7 @@ export default function ChefesPreview() {
     {
       name: 'Cress',
       type: 'Tipo Água',
-      location: 'Líder do Ginásio de Striaton',
+      location: 'Striaton',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/cress.png',
       borderColor: '#6890F0',
       backgroundColor: '#e6f2ff'
@@ -98,7 +118,7 @@ export default function ChefesPreview() {
     {
       name: 'Lenora',
       type: 'Tipo Normal',
-      location: 'Ginásio de Nacrene',
+      location: 'Nacrene',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/lenora.png',
       borderColor: '#A8A878',
       backgroundColor: '#f7f7e6'
@@ -106,7 +126,7 @@ export default function ChefesPreview() {
     {
       name: 'Burgh',
       type: 'Tipo Inseto',
-      location: 'Ginásio de Castelia',
+      location: 'Castelia',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/burgh.png',
       borderColor: '#A8B820',
       backgroundColor: '#f6fbe6'
@@ -114,7 +134,7 @@ export default function ChefesPreview() {
     {
       name: 'Elesa',
       type: 'Tipo Elétrico',
-      location: 'Ginásio de Nimbasa',
+      location: 'Nimbasa',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/elesa.png',
       borderColor: '#F8D030',
       backgroundColor: '#fffbe6'
@@ -122,7 +142,7 @@ export default function ChefesPreview() {
     {
       name: 'Clay',
       type: 'Tipo Terra',
-      location: 'Ginásio de Driftveil',
+      location: 'Driftveil',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/clay.png',
       borderColor: '#E0C068',
       backgroundColor: '#f9f6e6'
@@ -130,7 +150,7 @@ export default function ChefesPreview() {
     {
       name: 'Skyla',
       type: 'Tipo Voador',
-      location: 'Ginásio de Mistralton',
+      location: 'Mistralton',
       image: 'https://play.pokemonshowdown.com/sprites/trainers/skyla.png',
       borderColor: '#A890F0',
       backgroundColor: '#f2f2ff'
@@ -138,107 +158,44 @@ export default function ChefesPreview() {
   ];
 
   return (
-    <Box sx={{ 
-      background: 'linear-gradient(135deg, #b7e0f7 0%, #3a5da8 100%)',
-      minHeight: '100vh',
-      fontFamily: 'Segoe UI, Arial, sans-serif'
-    }}>
+    <ThemeProvider theme={pokedexTheme}>
       <Box sx={{ 
-        background: 'linear-gradient(90deg, #e3eaf6 0%, #3a5da8 100%)',
-        padding: '18px 0',
-        textAlign: 'center',
-        borderBottom: '3px solid #3a5da8',
-        boxShadow: '0 2px 8px rgba(58,93,168,0.10)'
+        background: 'linear-gradient(135deg, #FFE0E6 0%, #FFCDD2 50%, #F8BBD9 100%)',
+        minHeight: '100vh',
+        padding: '20px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
       }}>
-        <Typography variant="h1" sx={{
-          fontFamily: 'Segoe UI, Arial, sans-serif',
-          color: '#3a5da8',
-          fontSize: { xs: '1.6em', sm: '1.8em', md: '2.1em' },
-          letterSpacing: { xs: '1px', md: '3px' },
-          margin: 0,
-          textShadow: '1px 1px 0 #fff, 2px 2px 0 #b7e0f7'
-        }}>
-          Pokédex Unova
-        </Typography>
+        <PokedexDevice>
+          <PokedexHeader title="LÍDERES DE GINÁSIO" />
+          
+          <Typography variant="h3" sx={{ 
+            textAlign: 'center', 
+            marginBottom: '16px',
+            color: 'text.primary',
+            fontSize: '1.2rem',
+            fontWeight: 600
+          }}>
+            Região de Unova
+          </Typography>
+          
+          <ChefesGrid>
+            {chefes.map((chefe, index) => (
+              <ChefCard 
+                key={index}
+                borderColor={chefe.borderColor}
+                backgroundColor={chefe.backgroundColor}
+              >
+                <ChefAvatar src={chefe.image} alt={chefe.name} />
+                <ChefName>{chefe.name}</ChefName>
+                <ChefType>{chefe.type}</ChefType>
+                <ChefLocation>{chefe.location}</ChefLocation>
+              </ChefCard>
+            ))}
+          </ChefesGrid>
+        </PokedexDevice>
       </Box>
-
-      <Container sx={{
-        maxWidth: '420px',
-        margin: '60px auto',
-        background: '#f8fafc',
-        padding: { xs: '16px', sm: '20px', md: '32px' },
-        borderRadius: '16px',
-        boxShadow: '0 4px 24px rgba(58,93,168,0.15)',
-        border: '2px solid #3a5da8'
-      }}>
-        <Typography variant="h2" sx={{ 
-          color: '#3a5da8', 
-          textAlign: 'center', 
-          fontWeight: 'bold',
-          fontSize: { xs: '1.4em', md: '1.6em' },
-          marginBottom: '16px'
-        }}>
-          Chefes dos Jogos da Região de Unova
-        </Typography>
-        
-        <Typography sx={{ 
-          textAlign: 'center', 
-          color: '#2c4377', 
-          marginBottom: '24px',
-          fontSize: '1.1em'
-        }}>
-          Conheça os líderes de ginásio e campeões dos jogos Pokémon Black, White, Black 2 e White 2!
-        </Typography>
-
-        <Box sx={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: { xs: '8px', sm: '12px', md: '18px' },
-          justifyContent: 'center',
-          marginTop: '24px',
-          padding: { xs: '0 10px', md: 0 }
-        }}>
-          {chefes.map((chefe, index) => (
-            <ChiefCard 
-              key={index}
-              borderColor={chefe.borderColor}
-              backgroundColor={chefe.backgroundColor}
-            >
-              <ChiefImage src={chefe.image} alt={chefe.name} />
-              <ChiefTitle>{chefe.name}</ChiefTitle>
-              <ChiefType>{chefe.type}</ChiefType>
-              <ChiefLocation>{chefe.location}</ChiefLocation>
-            </ChiefCard>
-          ))}
-        </Box>
-
-        <Typography sx={{ 
-          marginTop: '24px', 
-          textAlign: 'center', 
-          color: '#2c4377',
-          fontSize: '1.1em'
-        }}>
-          Cada chefe possui uma equipe única e representa um desafio especial para os treinadores em Unova!
-        </Typography>
-      </Container>
-
-      <Box sx={{ 
-        background: 'linear-gradient(90deg, #3a5da8 0%, #e3eaf6 100%)',
-        padding: '14px 0',
-        textAlign: 'center',
-        borderTop: '3px solid #3a5da8',
-        boxShadow: '0 -2px 8px rgba(58,93,168,0.10)'
-      }}>
-        <Typography sx={{
-          fontFamily: 'Segoe UI, Arial, sans-serif',
-          color: '#2c4377',
-          fontSize: '1em',
-          margin: 0,
-          letterSpacing: '1px'
-        }}>
-          Desenvolvido por Falcon © 2025 | Inspirado na região de Unova
-        </Typography>
-      </Box>
-    </Box>
+    </ThemeProvider>
   );
 }

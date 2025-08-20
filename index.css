@@ -1,22 +1,112 @@
 /* Importações de fontes */
-@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap');
 
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
+  /* Variáveis CSS para o tema Pokédex */
+  --pokedex-red: #DC143C;
+  --pokedex-red-dark: #B71C1C;
+  --pokedex-blue: #1976D2;
+  --pokedex-green: #4CAF50;
+  --pokedex-orange: #FF9800;
+  --screen-bg: #E8F5E8;
+  --text-primary: #212121;
+  --text-secondary: #757575;
 }
 
 #root {
   margin: auto;
 }
 
-/* Estilos globais para a Pokédex */
+/* Reset e estilos globais */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #b7e0f7 0%, #3a5da8 100%);
+  background: linear-gradient(135deg, #FFE0E6 0%, #FFCDD2 50%, #F8BBD9 100%);
   min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Animações personalizadas */
+@keyframes pulse {
+  0%, 100% { 
+    opacity: 1; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.7; 
+    transform: scale(1.05);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { 
+    box-shadow: 0 0 8px var(--pokedex-green);
+  }
+  50% { 
+    box-shadow: 0 0 16px var(--pokedex-green), 0 0 24px var(--pokedex-green);
+  }
+}
+
+/* Estilos para scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pokedex-red);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pokedex-red-dark);
+}
+
+/* Estilos para foco e acessibilidade */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--pokedex-blue);
+  outline-offset: 2px;
+}
+
+/* Transições suaves para elementos interativos */
+button, 
+.MuiButton-root,
+.MuiIconButton-root,
+.MuiChip-root {
+  transition: all 0.3s ease !important;
+}
+
+/* Estilo para elementos com hover */
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 13px;
+  }
 }
