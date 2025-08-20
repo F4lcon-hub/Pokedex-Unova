@@ -32,7 +32,6 @@
                 <div class="info-box">
                     <p><strong>Tipos:</strong> {{ pokemon.types | join(', ') }}</p>
                     <p><strong>Fraquezas:</strong> {% if pokemon.fraquezas %}{{ pokemon.fraquezas | join(', ') }}{% else %}Nenhuma encontrada{% endif %}</p>
-                    <p><strong>Mega Evolução:</strong> {% if pokemon.mega %}{{ pokemon.mega }}{% else %}Não possui megaevolução{% endif %}</p>
                 </div>
                 <div class="evolucoes-box">
                     <p><strong>Evoluções:</strong></p>
