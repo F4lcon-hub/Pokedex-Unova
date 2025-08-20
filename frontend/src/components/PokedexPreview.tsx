@@ -1,6 +1,9 @@
 import React from 'react';
-import { Box, Container, Typography, Card, CardContent, Button, TextField, Grid, Chip } from '@mui/material';
+import { Box, Container, Typography, Card, Button, TextField } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import PokemonStatsDisplay from './PokemonStatsDisplay';
+import PokemonTypesDisplay from './PokemonTypesDisplay';
+import EvolutionDisplay from './EvolutionDisplay';
 
 const PokedexContainer = styled(Container)(({ theme }) => ({
   maxWidth: '420px',
@@ -89,40 +92,20 @@ const SearchButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-const EvolutionButton = styled(Button)(({ theme }) => ({
-  background: 'linear-gradient(180deg, #e3eaf6 0%, #3a5da8 100%)',
-  color: '#fff',
-  border: '2px solid #2c4377',
-  borderRadius: '12px',
-  padding: '6px 18px',
-  margin: '4px 0',
-  fontWeight: 'bold',
-  boxShadow: '0 2px 8px rgba(58,93,168,0.15)',
-  '&:hover': {
-    background: 'linear-gradient(180deg, #3a5da8 0%, #e3eaf6 100%)',
-    color: '#e3eaf6',
-    transform: 'scale(1.05)',
-  },
-  [theme.breakpoints.down('sm')]: {
-    padding: '4px 12px',
-    fontSize: '0.9em',
-  },
-}));
-
 export default function PokedexPreview() {
   const mockPokemon = {
     name: 'Pikachu',
     image: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png',
-    types: ['Electric'],
-    fraquezas: ['Ground'],
+    types: ['Elétrico'],
+    fraquezas: ['Terra'],
     evolucoes: ['Pichu', 'Pikachu', 'Raichu'],
     stats: {
-      'HP': 35,
-      'Attack': 55,
-      'Defense': 40,
-      'Sp. Attack': 50,
-      'Sp. Defense': 50,
-      'Speed': 90
+      'Vida': 35,
+      'Ataque': 55,
+      'Defesa': 40,
+      'Ataque Especial': 50,
+      'Defesa Especial': 50,
+      'Velocidade': 90
     }
   };
 
@@ -215,47 +198,14 @@ export default function PokedexPreview() {
             <PokeSprite src={mockPokemon.image} alt="Pokémon sprite" />
           </Box>
 
-          <Box sx={{ marginBottom: '8px' }}>
-            <Typography sx={{ color: '#2c4377', fontWeight: 'bold' }}>
-              <strong>Tipos:</strong> {mockPokemon.types.join(', ')}
-            </Typography>
-            <Typography sx={{ color: '#2c4377', fontWeight: 'bold' }}>
-              <strong>Fraquezas:</strong> {mockPokemon.fraquezas.join(', ')}
-            </Typography>
-          </Box>
+          <PokemonTypesDisplay 
+            types={mockPokemon.types} 
+            fraquezas={mockPokemon.fraquezas} 
+          />
 
-          <Box sx={{ marginBottom: '8px' }}>
-            <Typography sx={{ color: '#2c4377', fontWeight: 'bold', marginBottom: '8px' }}>
-              <strong>Evoluções:</strong>
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
-              {mockPokemon.evolucoes.map((evo, index) => (
-                <EvolutionButton key={index} size="small">
-                  {evo}
-                </EvolutionButton>
-              ))}
-            </Box>
-          </Box>
+          <EvolutionDisplay evolucoes={mockPokemon.evolucoes} />
 
-
-          <Box>
-            <Typography sx={{ color: '#2c4377', fontWeight: 'bold', marginBottom: '8px' }}>
-              <strong>Stats:</strong>
-            </Typography>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center' }}>
-              {Object.entries(mockPokemon.stats).map(([stat, valor]) => (
-                <Chip 
-                  key={stat}
-                  label={`${stat}: ${valor}`}
-                  sx={{ 
-                    backgroundColor: '#3a5da8', 
-                    color: '#fff',
-                    fontSize: { xs: '0.9em', md: '1em' }
-                  }}
-                />
-              ))}
-            </Box>
-          </Box>
+          <PokemonStatsDisplay stats={mockPokemon.stats} />
         </PokemonCard>
       </PokedexContainer>
 

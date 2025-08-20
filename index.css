@@ -1,4 +1,4 @@
-/* Global CSS for Pokédex Responsive Preview */
+/* Importações de fontes */
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;700;900&display=swap');
 
 :root {
@@ -6,77 +6,17 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
-  /* Pokédex Unova Color Palette */
-  --pokedex-primary: #3a5da8;
-  --pokedex-secondary: #e3eaf6;
-  --pokedex-accent: #b7e0f7;
-  --pokedex-text: #2c4377;
-  --pokedex-background: #f8fafc;
-  --pokedex-dark: #232a3a;
 }
 
 #root {
   margin: auto;
 }
 
-/* Base styles for Pokédex theme */
+/* Estilos globais para a Pokédex */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, var(--pokedex-accent) 0%, var(--pokedex-primary) 100%);
   margin: 0;
   padding: 0;
-}
-
-/* Responsive utilities */
-.responsive-container {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 16px;
-}
-
-@media (max-width: 768px) {
-  .responsive-container {
-    max-width: 95vw;
-    padding: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .responsive-container {
-    padding: 8px;
-  }
-}
-
-/* Custom scrollbar for Pokédex theme */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--pokedex-secondary);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--pokedex-primary);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--pokedex-text);
-}
-
-/* Ensure images are responsive */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Focus styles for accessibility */
-button:focus,
-input:focus,
-select:focus,
-textarea:focus {
-  outline: 2px solid var(--pokedex-primary);
-  outline-offset: 2px;
+  background: linear-gradient(135deg, #b7e0f7 0%, #3a5da8 100%);
+  min-height: 100vh;
 }

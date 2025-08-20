@@ -8,6 +8,46 @@ import requests
 
 rotas = Blueprint('rotas', __name__)
 
+# Traduções para tipos de Pokémon
+TYPE_TRANSLATIONS = {
+    'normal': 'Normal',
+    'fire': 'Fogo',
+    'water': 'Água',
+    'electric': 'Elétrico',
+    'grass': 'Planta',
+    'ice': 'Gelo',
+    'fighting': 'Lutador',
+    'poison': 'Venenoso',
+    'ground': 'Terra',
+    'flying': 'Voador',
+    'psychic': 'Psíquico',
+    'bug': 'Inseto',
+    'rock': 'Pedra',
+    'ghost': 'Fantasma',
+    'dragon': 'Dragão',
+    'dark': 'Sombrio',
+    'steel': 'Metálico',
+    'fairy': 'Fada'
+}
+
+# Traduções para estatísticas
+STAT_TRANSLATIONS = {
+    'hp': 'Vida',
+    'attack': 'Ataque',
+    'defense': 'Defesa',
+    'special-attack': 'Ataque Especial',
+    'special-defense': 'Defesa Especial',
+    'speed': 'Velocidade'
+}
+
+def translate_type(type_name):
+    """Traduz o nome do tipo do inglês para português"""
+    return TYPE_TRANSLATIONS.get(type_name.lower(), type_name.capitalize())
+
+def translate_stat(stat_name):
+    """Traduz o nome da estatística do inglês para português"""
+    return STAT_TRANSLATIONS.get(stat_name.lower(), stat_name.capitalize())
+
 # Rota principal
 @rotas.route('/', methods=['GET', 'POST'])
 def index():
@@ -24,7 +64,10 @@ def index():
         response = requests.get(url)
         if response.status_code == 200:
             data = response.json()
-            tipos = [t['type']['name'].capitalize() for t in data['types']]
+            # Traduzir tipos
+            tipos = [translate_type(t['type']['name']) for t in data['types']]
+            
+            # Buscar fraquezas e traduzir
             fraquezas_set = set()
             for t in data['types']:
                 tipo_url = t['type']['url']
@@ -32,8 +75,10 @@ def index():
                 if tipo_resp.status_code == 200:
                     tipo_data = tipo_resp.json()
                     for weak in tipo_data['damage_relations']['double_damage_from']:
-                        fraquezas_set.add(weak['name'].capitalize())
+                        fraquezas_set.add(translate_type(weak['name']))
             fraquezas = list(fraquezas_set)
+            
+            # Buscar evoluções (sem megaevoluções)
             evolucoes = []
             species_url = data['species']['url']
             species_resp = requests.get(species_url)
@@ -48,10 +93,17 @@ def index():
                         nomes = [chain['species']['name'].capitalize()]
                         if chain['evolves_to']:
                             for evo in chain['evolves_to']:
-                                nomes += listar_evolucoes(evo)
+                                # Filtrar megaevoluções
+                                if not any(detail.get('trigger', {}).get('name') == 'use-item' and 
+                                         'mega' in detail.get('item', {}).get('name', '').lower() 
+                                         for detail in evo.get('evolution_details', [])):
+                                    nomes += listar_evolucoes(evo)
                         return nomes
                     evolucoes = listar_evolucoes(chain)
-            stats = {s['stat']['name'].capitalize(): s['base_stat'] for s in data['stats']}
+            
+            # Traduzir estatísticas
+            stats = {translate_stat(s['stat']['name']): s['base_stat'] for s in data['stats']}
+            
             pokemon = {
                 'name': data['name'].capitalize(),
                 'image': data['sprites']['front_default'],
